@@ -1,7 +1,7 @@
 Name:          qsampler
 Summary:       LinuxSampler GUI front-end application
 Version:       0.2.1
-Release:       %mkrel 1
+Release:       %mkrel 2
 License:       GPL
 Group:	       Sound
 Source0:       %{name}-%{version}.tar.gz
@@ -10,6 +10,8 @@ BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 BuildRequires: liblscp-devel
 BuildRequires: qt4-devel
+
+Requires:      linuxsampler
 
 %description
 QSampler is a LinuxSampler GUI front-end application written in 
