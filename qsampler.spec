@@ -1,7 +1,7 @@
 Name:          qsampler
 Summary:       LinuxSampler GUI front-end application
 Version:       0.2.1
-Release:       %mkrel 2
+Release:       %mkrel 4
 License:       GPL
 Group:	       Sound
 Source0:       %{name}-%{version}.tar.gz
