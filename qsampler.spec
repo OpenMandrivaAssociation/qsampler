@@ -1,16 +1,15 @@
 Name:          qsampler
 Summary:       LinuxSampler GUI front-end application
-Version:       0.2.1
-Release:       %mkrel 5
+Version:       0.2.2
+Release:       %mkrel 1
 License:       GPL
 Group:	       Sound
 Source0:       %{name}-%{version}.tar.gz
 URL: 	       http://qsampler.sourceforge.net/
 BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-
 BuildRequires: liblscp-devel
 BuildRequires: qt4-devel
-
+BuildRequires: libgig-devel
 Requires:      linuxsampler
 
 %description
@@ -24,6 +23,7 @@ Control Protocol (LSCP).
 %{_bindir}/qsampler
 %{_datadir}/applications/qsampler.desktop
 %{_datadir}/pixmaps/qsampler.png
+%{_datadir}/locale/*.qm
 
 #--------------------------------------------------------------------
 
@@ -32,13 +32,12 @@ rm -fr %buildroot
 %setup -q -n %name-%version
 
 %build
-%configure
-
-
-make
+%configure2_5x
+%make
 
 %install
-make DESTDIR=%buildroot  install
+#make DESTDIR=%buildroot  install
+%makeinstall
 
 %clean
 rm -fr %buildroot
