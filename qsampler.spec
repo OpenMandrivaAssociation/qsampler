@@ -1,7 +1,7 @@
 Name:		qsampler
 Summary:	LinuxSampler GUI front-end application
 Version:	0.5.3
-Release:	1
+Release:	2
 License:	GPLv2
 Group:		Sound/Midi
 URL:		https://qsampler.sourceforge.io/
@@ -16,6 +16,8 @@ BuildRequires:	pkgconfig(gig)
 BuildRequires:	qt5-qttools
 BuildRequires:	qmake5
 BuildRequires:	cmake(Qt5LinguistTools)
+
+Requires: linuxsampler
 
 %description
 QSampler is a LinuxSampler GUI front-end application written in
