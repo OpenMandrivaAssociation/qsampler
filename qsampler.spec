@@ -14,6 +14,7 @@ BuildRequires:	pkgconfig(Qt5X11Extras)
 BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(gig)
 BuildRequires:	qt5-qttools
+BuildRequires:	qmake5
 
 %description
 QSampler is a LinuxSampler GUI front-end application written in
