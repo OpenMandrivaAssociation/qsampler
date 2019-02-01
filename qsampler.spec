@@ -1,80 +1,52 @@
-%define debug_package %{nil}
+Name:		qsampler
+Summary:	LinuxSampler GUI front-end application
+Version:	0.5.3
+Release:	1
+License:	GPLv2
+Group:		Sound/Midi
+URL:		https://qsampler.sourceforge.io/
+Source0:	https://sourceforge.net/projects/qsampler/files/qsampler/%{version}/%{name}-%{version}.tar.gz
 
-Name:          qsampler
-Summary:       LinuxSampler GUI front-end application
-Version:       0.2.2
-Release:       2
-License:       GPLv2
-Group:         Sound
-Source0:       %{name}-%{version}.tar.gz
-URL:           http://qsampler.sourceforge.net/
-BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: liblscp-devel
-BuildRequires: qt4-devel
-BuildRequires: libgig-devel
-BuildRequires: desktop-file-utils
-
-Requires:      linuxsampler
+BuildRequires:	pkgconfig(lscp)
+BuildRequires:	pkgconfig(Qt5Core)
+BuildRequires:	pkgconfig(Qt5Gui)
+BuildRequires:	pkgconfig(Qt5X11Extras)
+BuildRequires:	pkgconfig(Qt5Widgets)
+BuildRequires:	pkgconfig(gig)
+BuildRequires:	qt5-qttools
 
 %description
-QSampler is a LinuxSampler GUI front-end application written in 
-C++ around the Qt4 toolkit using Qt Designer. At the moment it 
-just wraps as a client reference interface for the LinuxSampler 
+QSampler is a LinuxSampler GUI front-end application written in
+C++ around the Qt5 toolkit using Qt Designer. At the moment it
+just wraps as a client reference interface for the LinuxSampler
 Control Protocol (LSCP).
 
-%files
-%defattr(-,root,root)
-%{_bindir}/qsampler
-%{_datadir}/applications/qsampler.desktop
-%{_datadir}/pixmaps/qsampler.png
-%{_datadir}/locale/*.qm
-
-#--------------------------------------------------------------------
-
 %prep
-%setup -q -n %name-%version
+%setup -q
 
 %build
-export CXXFLAGS="%{optflags}"
-%configure
-perl -pi -e "s/-llscp/-llscp -lX11/g" qsampler.pro
-%make
+%configure2_5x --enable-debug
+
+%make_build
 
 %install
-%makeinstall_std
-# Fix the .desktop file by removing
-# 2 non-Mdv key and 2 non-standard categories
+%make_install
+
 desktop-file-install \
-    --remove-key="X-SuSE-translate" \
-    --remove-key="Version" \
-    --remove-category="MIDI" \
-    --remove-category="ALSA" \
-    --remove-category="JACK" \
-    --add-category="Midi" \
-    --add-category="X-MandrivaLinux-Sound" \
-    --dir %{buildroot}%{_datadir}/applications \
-%{buildroot}%{_datadir}/applications/%{name}.desktop
+	--remove-key="X-SuSE-translate" \
+	--remove-key="Version" \
+	--set-key=Exec --set-value="%{name}" \
+	--dir %{buildroot}%{_datadir}/applications \
+	%{buildroot}%{_datadir}/applications/%{name}.desktop
 
-
-
-%changelog
-* Fri Aug 28 2009 Emmanuel Andry <eandry@mandriva.org> 0.2.2-1mdv2010.0
-+ Revision: 421792
-- New version 0.2.2
-
-* Fri Aug 01 2008 Thierry Vignaud <tvignaud@mandriva.com> 0.2.1-5mdv2009.0
-+ Revision: 259976
-- rebuild
-
-* Fri Jul 25 2008 Thierry Vignaud <tvignaud@mandriva.com> 0.2.1-4mdv2009.0
-+ Revision: 247782
-- rebuild
-
-  + Nicolas Lécureuil <neoclust@mandriva.org>
-    - Add linuxsampler as require
-
-* Sun Dec 16 2007 Nicolas Lécureuil <neoclust@mandriva.org> 0.2.1-1mdv2008.1
-+ Revision: 120470
-- import qsampler
-
-
+%files
+%{_bindir}/%{name}
+%{_datadir}/applications/%{name}.desktop
+%{_datadir}/icons/hicolor/32x32/apps/%{name}.png
+%{_datadir}/icons/hicolor/32x32/mimetypes/application-x-%{name}-session.png
+%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
+%{_datadir}/icons/hicolor/scalable/mimetypes/application-x-%{name}-session.svg
+%{_datadir}/%{name}/
+%{_datadir}/mime/packages/%{name}.xml
+%{_datadir}/metainfo/%{name}.appdata.xml
+%{_mandir}/man1/*
