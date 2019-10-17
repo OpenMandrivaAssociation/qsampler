@@ -1,6 +1,6 @@
 Name:		qsampler
 Summary:	LinuxSampler GUI front-end application
-Version:	0.5.6
+Version:	0.6.0
 Release:	1
 License:	GPLv2
 Group:		Sound/Midi
