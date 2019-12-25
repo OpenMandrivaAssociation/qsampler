@@ -1,6 +1,6 @@
 Name:		qsampler
 Summary:	LinuxSampler GUI front-end application
-Version:	0.6.0
+Version:	0.6.1
 Release:	1
 License:	GPLv2
 Group:		Sound/Midi
@@ -29,7 +29,7 @@ Control Protocol (LSCP).
 %setup -q
 
 %build
-%configure2_5x --enable-debug
+%configure --enable-debug
 
 %make_build
 
