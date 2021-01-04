@@ -54,3 +54,4 @@ desktop-file-install \
 %{_datadir}/mime/packages/%{name}.xml
 %{_datadir}/metainfo/%{name}.appdata.xml
 %{_mandir}/man1/*
+%{_mandir}/*/man1/qsampler.1.*
