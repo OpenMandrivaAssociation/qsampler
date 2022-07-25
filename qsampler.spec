@@ -10,6 +10,7 @@ Source0:	https://sourceforge.net/projects/qsampler/files/qsampler/%{version}/%{n
 BuildRequires:	pkgconfig(lscp)
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5Gui)
+BuildRequires:	pkgconfig(Qt5Network)
 BuildRequires:	pkgconfig(Qt5X11Extras)
 BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(gig)
