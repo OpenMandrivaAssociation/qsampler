@@ -13,6 +13,7 @@ BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5X11Extras)
 BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(gig)
+BuildRequires:	cmake
 BuildRequires:	qt5-qttools
 BuildRequires:	qmake5
 BuildRequires:	cmake(Qt5LinguistTools)
@@ -29,12 +30,12 @@ Control Protocol (LSCP).
 %setup -q
 
 %build
-%configure --enable-debug
+%cmake
 
 %make_build
 
 %install
-%make_install
+%make_install -C build
 
 desktop-file-install \
 	--remove-key="X-SuSE-translate" \
