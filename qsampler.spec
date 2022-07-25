@@ -50,7 +50,7 @@ desktop-file-install \
 %{_datadir}/applications/org.rncbc.qsampler.desktop
 %{_datadir}/icons/hicolor/*x*/apps/org.rncbc.qsampler.png
 %{_datadir}/icons/hicolor/*x*/mimetypes/org.rncbc.qsampler.application-x-qsampler-session.png
-%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
+%{_datadir}/icons/hicolor/scalable/apps/org.rncbc.qsampler.svg
 %{_datadir}/icons/hicolor/scalable/mimetypes/org.rncbc.qsampler.application-x-qsampler-session.svg
 %{_datadir}/%{name}/
 %{_datadir}/mime/packages/org.rncbc.qsampler.xml
