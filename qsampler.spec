@@ -43,11 +43,11 @@ desktop-file-install \
 	--remove-key="Version" \
 	--set-key=Exec --set-value="%{name}" \
 	--dir %{buildroot}%{_datadir}/applications \
-	%{buildroot}%{_datadir}/applications/%{name}.desktop
+	%{buildroot}%{_datadir}/applications/org.rncbc.qsampler.desktop
 
 %files
 %{_bindir}/%{name}
-%{_datadir}/applications/%{name}.desktop
+%{_datadir}/applications/org.rncbc.qsampler.desktop
 %{_datadir}/icons/hicolor/32x32/apps/%{name}.png
 %{_datadir}/icons/hicolor/32x32/mimetypes/application-x-%{name}-session.png
 %{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
