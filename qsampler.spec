@@ -48,12 +48,12 @@ desktop-file-install \
 %files
 %{_bindir}/%{name}
 %{_datadir}/applications/org.rncbc.qsampler.desktop
-%{_datadir}/icons/hicolor/32x32/apps/%{name}.png
-%{_datadir}/icons/hicolor/32x32/mimetypes/application-x-%{name}-session.png
+%{_datadir}/icons/hicolor/*x*/apps/org.rncbc.qsampler.png
+%{_datadir}/icons/hicolor/*x*/mimetypes/org.rncbc.qsampler.application-x-qsampler-session.png
 %{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
-%{_datadir}/icons/hicolor/scalable/mimetypes/application-x-%{name}-session.svg
+%{_datadir}/icons/hicolor/scalable/mimetypes/org.rncbc.qsampler.application-x-qsampler-session.svg
 %{_datadir}/%{name}/
-%{_datadir}/mime/packages/%{name}.xml
-%{_datadir}/metainfo/%{name}.appdata.xml
+%{_datadir}/mime/packages/org.rncbc.qsampler.xml
+%{_datadir}/metainfo/org.rncbc.qsampler.metainfo.xml
 %{_mandir}/man1/*
 %{_mandir}/*/man1/qsampler.1.*
