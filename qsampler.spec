@@ -1,6 +1,6 @@
 Name:		qsampler
 Summary:	LinuxSampler GUI front-end application
-Version:	0.9.6
+Version:	0.9.11
 Release:	1
 License:	GPLv2
 Group:		Sound/Midi
@@ -8,16 +8,19 @@ URL:		https://qsampler.sourceforge.io/
 Source0:	https://sourceforge.net/projects/qsampler/files/qsampler/%{version}/%{name}-%{version}.tar.gz
 
 BuildRequires:	pkgconfig(lscp)
-BuildRequires:	pkgconfig(Qt5Core)
-BuildRequires:	pkgconfig(Qt5Gui)
-BuildRequires:	pkgconfig(Qt5Network)
-BuildRequires:	pkgconfig(Qt5X11Extras)
-BuildRequires:	pkgconfig(Qt5Widgets)
+BuildRequires:	cmake(Qt6Core)
+BuildRequires:	cmake(Qt6Gui)
+BuildRequires:	cmake(Qt6Network)
+BuildRequires:	cmake(Qt6Widgets)
 BuildRequires:	pkgconfig(gig)
 BuildRequires:	cmake
-BuildRequires:	qt5-qttools
-BuildRequires:	qmake5
-BuildRequires:	cmake(Qt5LinguistTools)
+BuildRequires:	cmake(Qt6)
+BuildRequires:	qmake-qt6
+BuildRequires:	cmake(Qt6LinguistTools)
+BuildRequires:  cmake(Qt6Svg)
+BuildRequires:	qt6-qtbase-theme-gtk3
+BuildRequires:  pkgconfig(xkbcommon-x11)
+BuildRequires:  pkgconfig(vulkan)
 
 Requires: linuxsampler
 
@@ -28,10 +31,11 @@ just wraps as a client reference interface for the LinuxSampler
 Control Protocol (LSCP).
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
-%cmake
+%cmake \
+        -DCONFIG_QT6=yes
 
 %make_build
 
