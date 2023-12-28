@@ -27,7 +27,7 @@ just wraps as a client reference interface for the LinuxSampler
 Control Protocol (LSCP).
 
 %prep
-%autosetup -q
+%autosetup -p1
 
 %build
 %cmake \
