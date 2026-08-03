@@ -6,8 +6,9 @@ License:	GPLv2
 Group:	Sound/Midi
 Url:		https://qsampler.sourceforge.io/
 Source0:	https://sourceforge.net/projects/qsampler/files/qsampler/%{version}/%{name}-%{version}.tar.gz
+BuildRequires:	make
 BuildRequires:	cmake
-BuildRequires:desktop-file-utils
+BuildRequires:	desktop-file-utils
 BuildRequires:	qmake-qt6
 BuildRequires:	qt6-qtbase-theme-gtk3
 BuildRequires:	cmake(Qt6)
